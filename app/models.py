@@ -10,3 +10,4 @@ class Flight(BaseModel):
     arrival_airport: str
     status: str
     aircraft_code: str
+    airline_name: str  # New field added
