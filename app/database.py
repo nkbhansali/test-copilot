@@ -1,6 +1,6 @@
 import sqlite3
 
-DATABASE_URL = "/Users/naveenbhansali/git/flights/data/flights.db"
+DATABASE_URL = "data/flights.db"  # Use a relative path
 
 def get_db_connection():
     try:
