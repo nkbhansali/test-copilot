@@ -2,9 +2,12 @@ import sqlite3
 import os
 from datetime import datetime
 
-DATABASE_URL = "/Users/naveenbhansali/git/flights/data/flights.db"
+DATABASE_URL = "data/flights.db"  # Use a relative path
 
 def initialize_database():
+    # Ensure the directory for the database file exists
+    os.makedirs(os.path.dirname(DATABASE_URL), exist_ok=True)
+    
     if os.path.exists(DATABASE_URL):
         os.remove(DATABASE_URL)
     conn = sqlite3.connect(DATABASE_URL)
