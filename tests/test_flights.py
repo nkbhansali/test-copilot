@@ -25,3 +25,4 @@ def test_get_flights():
         assert "arrival_airport" in flight
         assert "status" in flight
         assert "aircraft_code" in flight
+        assert "airline_name" in flight  # New assertion added

@@ -18,17 +18,18 @@ def initialize_database():
         departure_airport TEXT NOT NULL,
         arrival_airport TEXT NOT NULL,
         status TEXT NOT NULL,
-        aircraft_code TEXT NOT NULL
+        aircraft_code TEXT NOT NULL,
+        airline_name TEXT NOT NULL
     );
     ''')
     # Insert dummy data
     cursor.executemany('''
-    INSERT INTO flights (flight_no, scheduled_departure, scheduled_arrival, departure_airport, arrival_airport, status, aircraft_code)
-    VALUES (?, ?, ?, ?, ?, ?, ?)
+    INSERT INTO flights (flight_no, scheduled_departure, scheduled_arrival, departure_airport, arrival_airport, status, aircraft_code, airline_name)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
     ''', [
-        ("AA123", datetime(2023, 10, 1, 8, 0), datetime(2023, 10, 1, 10, 0), "JFK", "LAX", "On Time", "A320"),
-        ("BA456", datetime(2023, 10, 2, 9, 0), datetime(2023, 10, 2, 11, 0), "LHR", "CDG", "Delayed", "B737"),
-        ("CA789", datetime(2023, 10, 3, 10, 0), datetime(2023, 10, 3, 12, 0), "PEK", "HND", "Cancelled", "A380")
+        ("AA123", datetime(2023, 10, 1, 8, 0), datetime(2023, 10, 1, 10, 0), "JFK", "LAX", "On Time", "A320", "American Airlines"),
+        ("BA456", datetime(2023, 10, 2, 9, 0), datetime(2023, 10, 2, 11, 0), "LHR", "CDG", "Delayed", "B737", "British Airways"),
+        ("CA789", datetime(2023, 10, 3, 10, 0), datetime(2023, 10, 3, 12, 0), "PEK", "HND", "Cancelled", "A380", "China Airlines")
     ])
     conn.commit()
     conn.close()
